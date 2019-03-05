@@ -19,7 +19,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.timeSubscription = this.clockService.time.subscribe((now: Date) => {
       this.time = now.toLocaleTimeString();
     });
-    this.time = '00:00:00 PM';
   }
 
   ngOnDestroy() {
