@@ -71,7 +71,6 @@ var AppComponent = /** @class */ (function () {
         this.timeSubscription = this.clockService.time.subscribe(function (now) {
             _this.time = now.toLocaleTimeString();
         });
-        this.time = '00:00:00 PM';
     };
     AppComponent.prototype.ngOnDestroy = function () {
         this.timeSubscription.unsubscribe();
