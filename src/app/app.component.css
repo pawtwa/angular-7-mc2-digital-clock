@@ -1,0 +1,6 @@
+.digital-clock {
+    display: block;
+    text-align: center;
+    font-family: digital;
+    font-size: 150px;
+}
