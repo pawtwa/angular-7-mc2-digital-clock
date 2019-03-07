@@ -159,7 +159,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var ClockService = /** @class */ (function () {
     function ClockService() {
-        this.time$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["timer"])(0, 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (tick) { return new Date(); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["shareReplay"])(1));
+        this.time$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["timer"])(0, 1000).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (tick) { return new Date(); }), 
+        /**
+         * same as `share()`
+         */
+        Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["shareReplay"])(1));
     }
     Object.defineProperty(ClockService.prototype, "time", {
         get: function () {
