@@ -1,4 +1,4 @@
-import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, timer } from 'rxjs';
 import { map, shareReplay } from "rxjs/operators";
 
@@ -9,6 +9,9 @@ export class ClockService {
   constructor() {
     this.time$ = timer(0, 1000).pipe(
       map(tick => new Date()),
+      /**
+       * same as `share()`
+       */
       shareReplay(1)
     );
   }
