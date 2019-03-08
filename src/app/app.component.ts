@@ -10,14 +10,14 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'mc2-digital-clock';
-  time: string;
+  time: Date;
   timeSubscription: Subscription;
 
   constructor(private clockService: ClockService) {}
 
   ngOnInit() {
-    this.timeSubscription = this.clockService.time.subscribe((now: Date) => {
-      this.time = now.toLocaleTimeString();
+    this.timeSubscription = this.clockService.time.subscribe((time: Date) => {
+      this.time = time;
     });
   }
 

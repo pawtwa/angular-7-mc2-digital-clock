@@ -5,6 +5,6 @@
     </mat-toolbar-row>
   </mat-toolbar>
   <div class="container">
-    <mat-card><span class="digital-clock">{{ time }}</span></mat-card>
+    <mat-card><span class="digital-clock">{{ time | date:"HH:mm:ss" }}</span></mat-card>
   </div>
 </div>
