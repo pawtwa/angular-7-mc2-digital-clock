@@ -41,7 +41,7 @@ module.exports = ".digital-clock {\r\n    display: block;\r\n    text-align: cen
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <span>Digital Clock</span>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <div class=\"container\">\n    <mat-card><span class=\"digital-clock\">{{ time }}</span></mat-card>\n  </div>\n</div>"
+module.exports = "<div class=\"wrapper\">\n  <mat-toolbar color=\"primary\">\n    <mat-toolbar-row>\n      <span>Digital Clock</span>\n    </mat-toolbar-row>\n  </mat-toolbar>\n  <div class=\"container\">\n    <mat-card><span class=\"digital-clock\">{{ time | date:\"HH:mm:ss\" }}</span></mat-card>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -68,8 +68,8 @@ var AppComponent = /** @class */ (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.timeSubscription = this.clockService.time.subscribe(function (now) {
-            _this.time = now.toLocaleTimeString();
+        this.timeSubscription = this.clockService.time.subscribe(function (time) {
+            _this.time = time;
         });
     };
     AppComponent.prototype.ngOnDestroy = function () {
@@ -105,8 +105,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _clock_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./clock.service */ "./src/app/clock.service.ts");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common_locales_pl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common/locales/pl */ "./node_modules/@angular/common/locales/pl.js");
+/* harmony import */ var _angular_common_locales_pl__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_angular_common_locales_pl__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _clock_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./clock.service */ "./src/app/clock.service.ts");
 
 
 
@@ -114,13 +117,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+Object(_angular_common__WEBPACK_IMPORTED_MODULE_5__["registerLocaleData"])(_angular_common_locales_pl__WEBPACK_IMPORTED_MODULE_6___default.a, 'pl');
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -128,8 +134,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatToolbarModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatCardModule"]
             ],
-            providers: [_clock_service__WEBPACK_IMPORTED_MODULE_6__["ClockService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
+            providers: [_clock_service__WEBPACK_IMPORTED_MODULE_8__["ClockService"], { provide: _angular_core__WEBPACK_IMPORTED_MODULE_3__["LOCALE_ID"], useValue: 'pl' }],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
